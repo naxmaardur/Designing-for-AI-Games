@@ -13,8 +13,9 @@ namespace NodeCanvas.Tasks.Actions
     {
 
         [RequiredField]
+        [BlackboardOnly]
         public BBParameter<List<GameObject>> list;
-
+        [RequiredField]
         [BlackboardOnly]
         public BBParameter<GameObject> saveAs;
 
