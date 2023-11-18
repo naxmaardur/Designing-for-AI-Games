@@ -24,6 +24,10 @@ public class ResourceObject : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public virtual void Use(AIActorData data)
+    {
+        Destroy(gameObject);
+    }
 
     private void Update()
     {

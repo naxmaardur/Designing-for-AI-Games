@@ -6,12 +6,14 @@ namespace NodeCanvas.BehaviourTrees
 {
 
 	[Category("✫ Custom")]
-	[Description("Set claim data on target object")]
+	[Description("Trigger Use on resource or source")]
 	public class UseResourceSource<T> : ActionTask
 	{
 		[RequiredField]
 		[BlackboardOnly]
 		public BBParameter<T> targetObject;
+		[BlackboardOnly]
+		public BBParameter<AIActorData> actorData;
 
 		protected override void OnExecute()
 		{
@@ -24,6 +26,24 @@ namespace NodeCanvas.BehaviourTrees
 					EndAction(false);
 				}
 				resourceSource.UseSource();
+				EndAction(true);
+			}
+			if (typeof(ResourceObject).IsAssignableFrom(typeof(T)))
+			{
+				ResourceObject resource = targetObject.value as ResourceObject;
+				if (resource == null)
+				{
+					targetObject.value = default(T);
+					EndAction(false);
+				}
+				if (actorData.value != null)
+				{
+					resource.Use(actorData.value);
+				}
+				else
+				{
+					resource.Use();
+				}
 				EndAction(true);
 			}
 		}

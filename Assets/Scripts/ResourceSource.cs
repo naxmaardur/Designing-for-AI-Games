@@ -6,13 +6,13 @@ public class ResourceSource : MonoBehaviour
 {
     private AIActorData worker;
     [SerializeField]
-    private GameObject resource;
+    protected GameObject resource;
     [SerializeField]
-    private int minResource;
+    protected int minResource;
     [SerializeField]
-    private int maxResource;
+    protected int maxResource;
     [SerializeField]
-    private float spawnRadius;
+    protected float spawnRadius;
     public bool TryClaim(AIActorData actor)
     {
         if (IsClaimed())

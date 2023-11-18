@@ -6,6 +6,9 @@ public class AIActorData : MonoBehaviour
 {
     public Transform holdingPoint;
     public AIActorData selfRef;
+    public float health;
+    public float hunger;
+    public float energy;
 
     private void Start()
     {
