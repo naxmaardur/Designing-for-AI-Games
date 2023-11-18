@@ -5,5 +5,11 @@ using UnityEngine;
 public class AIActorData : MonoBehaviour
 {
     public Transform holdingPoint;
+    public AIActorData selfRef;
+
+    private void Start()
+    {
+        selfRef = this;
+    }
 
 }

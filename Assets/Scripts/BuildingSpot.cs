@@ -9,6 +9,7 @@ public class BuildingSpot : MonoBehaviour
     public bool HasEnoughResources;
 
     public int BuildProgress;
+    private AIActorData worker;
 
     public void AddResource(Wood wood)
     {
@@ -39,5 +40,34 @@ public class BuildingSpot : MonoBehaviour
             Debug.Log("Done Building");
             Destroy(gameObject);
         }
+    }
+
+
+    public bool TryClaim(AIActorData actor)
+    {
+        if (IsClaimed())
+        {
+            return false;
+        }
+
+        worker = actor;
+        return true;
+    }
+
+    public void UnClaim(AIActorData actor)
+    {
+        if(actor == worker)
+        {
+            worker = null;
+        }
+    }
+
+    public bool IsClaimed()
+    {
+        if(worker == null)
+        {
+            return false;
+        }
+        return true;
     }
 }
