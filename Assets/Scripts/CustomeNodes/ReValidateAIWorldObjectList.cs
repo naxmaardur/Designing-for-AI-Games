@@ -88,6 +88,30 @@ namespace NodeCanvas.BehaviourTrees
 
 				EndAction(true);
 			}
+
+			if (typeof(House).IsAssignableFrom(typeof(T)))
+			{
+				List<T> ToRemove = new();
+				List<T> newList = targetList.value;
+
+				foreach (T obj in targetList.value)
+				{
+					if (obj == null) { continue; }
+					House house = obj as House;
+
+					if (house.GetActorsCount() > 2)
+					{
+						ToRemove.Add(obj);
+					}
+				}
+				foreach (T obj in ToRemove)
+				{
+					newList.Remove(obj);
+				}
+				storeList.value = newList;
+
+				EndAction(true);
+			}
 			EndAction(false);
 
 		}

@@ -29,7 +29,6 @@ namespace NodeCanvas.Tasks.Actions
             if (list.value.Count == 0)
             {
                 EndAction(false);
-                return;
             }
             if (!typeof(MonoBehaviour).IsAssignableFrom(typeof(T)))
             {

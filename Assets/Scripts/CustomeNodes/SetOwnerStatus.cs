@@ -62,7 +62,23 @@ namespace NodeCanvas.BehaviourTrees
                 }
 				EndAction(true);
 			}
-
+			if (typeof(House).IsAssignableFrom(typeof(T)))
+            {
+				House house = targetObject.value as House;
+				if (house == null)
+				{
+					EndAction(false);
+				}
+				if (claim.value)
+				{
+					house.AddActor(actorData.value);
+				}
+				else
+				{
+					house.RemoveActor(actorData.value);
+				}
+				EndAction(true);
+			}
 		}
 	}
 }

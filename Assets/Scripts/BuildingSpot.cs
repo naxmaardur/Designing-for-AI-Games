@@ -11,6 +11,9 @@ public class BuildingSpot : MonoBehaviour
     public int BuildProgress;
     private AIActorData worker;
 
+    [SerializeField]
+    private GameObject building;
+
     public void AddResource(Wood wood)
     {
         resources.Add(wood);
@@ -38,6 +41,7 @@ public class BuildingSpot : MonoBehaviour
         {
             //spawnBuilding
             Debug.Log("Done Building");
+            Instantiate(building, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
