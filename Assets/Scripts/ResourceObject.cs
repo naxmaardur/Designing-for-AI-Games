@@ -18,6 +18,7 @@ public class ResourceObject : MonoBehaviour
     {
         PickedUp = false;
         followPoint = null;
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     public virtual void Use()

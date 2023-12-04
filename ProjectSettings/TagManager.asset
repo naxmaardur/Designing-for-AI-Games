@@ -8,14 +8,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Actor
   - Water
   - UI
   - Resource
   - Building
   - BuildingSpot
   - ResourceSource
-  - 
+  - Ground
   - 
   - 
   - 

@@ -14,6 +14,16 @@ public class BuildingSpot : MonoBehaviour
     [SerializeField]
     private GameObject building;
 
+    [SerializeField]
+    private Transform[] workLocations;
+
+
+    private void Start()
+    {
+        FindObjectOfType<Village>().AddBuildingSpot(this);
+    }
+
+
     public void AddResource(Wood wood)
     {
         resources.Add(wood);
@@ -42,6 +52,11 @@ public class BuildingSpot : MonoBehaviour
             //spawnBuilding
             Debug.Log("Done Building");
             Instantiate(building, transform.position, transform.rotation);
+            FindObjectOfType<Village>().RemoveBuildingSpot(this);
+            foreach(Wood wood in resources)
+            {
+                Destroy(wood);
+            }
             Destroy(gameObject);
         }
     }
@@ -73,5 +88,10 @@ public class BuildingSpot : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public Vector3 GetWorkLocation()
+    {
+        return workLocations[Random.Range(0, workLocations.Length)].position;
     }
 }
