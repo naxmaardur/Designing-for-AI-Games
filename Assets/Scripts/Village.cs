@@ -21,7 +21,7 @@ public class Village : MonoBehaviour
         actors.Add(aIActor);
         if (actors.Count != 0 && houses.Count != 0)
         {
-            if ((actors.Count / 2f) > houses.Count)
+            if ((actors.Count / 2f) > (houses.Count + spots.Count))
             {
                 SpawnnewBuildingSpot();
             }
@@ -58,7 +58,7 @@ public class Village : MonoBehaviour
 
     private void SpawnnewBuildingSpot()
     {
-        if (spots.Count > 0) { return; }
+        if ((actors.Count / 2f) <= (houses.Count + spots.Count)) { return; }
 
         Vector3 targetpoint;
 

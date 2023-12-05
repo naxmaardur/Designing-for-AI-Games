@@ -44,8 +44,11 @@ public class BuildingSpot : MonoBehaviour
         if (resources.Count != 0)
         {
             Wood wood = resources[0];
-            resources.RemoveAt(0);
-            Destroy(wood.gameObject);
+            if (wood != null)
+            {
+                resources.RemoveAt(0);
+                Destroy(wood.gameObject);
+            }
         }
         if(BuildProgress >= resourcesNeededToBuild)
         {

@@ -41,11 +41,11 @@ public class ObjectPlacer : MonoBehaviour
             preview2.SetActive(false);
         }
         if (!canPlace) { return; }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Instantiate(treePrefab, transform.position, Quaternion.identity);
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Instantiate(foodSourcePrefab, transform.position, Quaternion.identity);
         }
